@@ -40,6 +40,16 @@ button {
   color: inherit;
 }
 
+.reset {
+    margin: 0;
+    padding: 4px;
+    border: 2px solid black;
+    background: orange;
+    cursor: pointer;
+    text-align: left;
+    color: inherit;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
