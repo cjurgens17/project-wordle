@@ -3,7 +3,7 @@ import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import { range } from "../../utils";
 import GuessCell from "../GuessCell";
 
-function PreviousGuesses({ prevGuess, answer }) {
+function PreviousGuesses({ prevGuess, answer , qwerty, setQwerty }) {
   return (
     <div className="guess-results">
       {range(0,NUM_OF_GUESSES_ALLOWED).map((num) => {
@@ -14,6 +14,8 @@ function PreviousGuesses({ prevGuess, answer }) {
               key={num}
               guessItem={guessItem}
               answer={answer}
+              qwerty={qwerty}
+              setQwerty={setQwerty}
             ></GuessCell>
           </p>
         );

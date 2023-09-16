@@ -195,6 +195,19 @@ h1 {
   color: white;
 }
 
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.keyboard-cell {
+  border-radius: 25%;
+  background-color: aliceblue;
+}
+
 .visually-hidden {
   position: absolute;
   overflow: hidden;
