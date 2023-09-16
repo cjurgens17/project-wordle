@@ -1,9 +1,11 @@
 import React from "react";
 import { sample } from "../../utils";
-import { WORDS } from "../../data";
+import { QWERTY, WORDS } from "../../data";
+import buildKeyboard from "../../build-keyboard";
 
-function Win({prevGuess, setAnswer, setProgress, setPrevGuess}) {
+function Win({prevGuess, setAnswer, setProgress, setPrevGuess, setQwerty}) {
   const nextAnswer = sample(WORDS);
+  const nextQwerty = buildKeyboard(QWERTY);
   return (
     <div className="happy banner">
       <p>
@@ -12,6 +14,7 @@ function Win({prevGuess, setAnswer, setProgress, setPrevGuess}) {
       </p>
       <button className="reset" onClick={() => {
         setAnswer(nextAnswer);
+        setQwerty(nextQwerty);
         const nextProgress = '';
         setProgress(nextProgress);
         const nextPrevGuess = [];

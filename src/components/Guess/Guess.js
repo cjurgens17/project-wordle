@@ -1,6 +1,7 @@
 import React from 'react';
+import checkGuessKeyboard from '../../game-helpers-keyboard';
 
-function Guess({prevGuess, setPrevGuess, progress, setProgress }) {
+function Guess({prevGuess, setPrevGuess, setProgress, answer,qwerty, setQwerty }) {
         const [ guess, setGuess ] = React.useState({
             id: Math.random(),
             input:''
@@ -22,9 +23,13 @@ function Guess({prevGuess, setPrevGuess, progress, setProgress }) {
                 return;
             }
 
-            //chekcing for the status of game: continue, win,lose
-            progress = guess.input;
-            setProgress(progress);
+            //updating qwerty to match styles
+            const nextQwerty = checkGuessKeyboard(guess.input,answer,qwerty);
+            setQwerty(nextQwerty);
+
+            //checking for the status of game: continue, win,lose
+            const nextProgress = guess.input;
+            setProgress(nextProgress);
 
             //setting prevGuess state
             const nextPrevGuess = [...prevGuess, guess];

@@ -9,7 +9,7 @@ function Keyboard({qwerty}) {
    
   return <div className='keyboard'>
     {range(0,keyboardRows).map((row) => {
-       return <div key={row}>{
+       return <div className='keyboard-row' key={row}>{
         range(0, keyboardCells[row]).map((cell) => {
           return <span key={cell} className={`${qwertyEntries[counter][1]} keyboard-cell`}>{qwertyEntries[counter++][0]}</span>
         })

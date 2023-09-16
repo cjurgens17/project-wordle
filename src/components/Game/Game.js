@@ -22,6 +22,7 @@ function Game() {
   const [ qwerty, setQwerty ] = React.useState(() => {
     return buildKeyboard(QWERTY);
   });
+
   const ALLOWED_GUESSES = NUM_OF_GUESSES_ALLOWED;
   console.info({ answer });
 
@@ -30,22 +31,22 @@ function Game() {
       <PreviousGuesses
         prevGuess={prevGuess.length > 0 && prevGuess}
         answer={answer}
-        qwerty={qwerty}
-        setQwerty={setQwerty}
       ></PreviousGuesses>
       {progress === answer ? (
-        <Win prevGuess={prevGuess} setAnswer={setAnswer} setProgress={setProgress} setPrevGuess={setPrevGuess}></Win>
+        <Win prevGuess={prevGuess} setAnswer={setAnswer} setProgress={setProgress} setPrevGuess={setPrevGuess} setQwerty={setQwerty}></Win>
       ) : prevGuess.length >= ALLOWED_GUESSES ? (
-        <Lose answer={answer} setAnswer={setAnswer} setProgress={setProgress} setPrevGuess={setPrevGuess}></Lose>
+        <Lose answer={answer} setAnswer={setAnswer} setProgress={setProgress} setPrevGuess={setPrevGuess} setQwerty={setQwerty}></Lose>
       ) : (
         <Guess
           prevGuess={prevGuess}
           setPrevGuess={setPrevGuess}
-          progress={progress}
           setProgress={setProgress}
+          qwerty={qwerty}
+          setQwerty={setQwerty}
+          answer={answer}
         />
       )}
-      <Keyboard qwerty={qwerty}/>
+      {prevGuess.length < 6 && progress !== answer ? <Keyboard qwerty={qwerty}/> : undefined}
     </>
   );
 }

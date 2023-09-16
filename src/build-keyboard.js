@@ -1,5 +1,5 @@
 export default function buildKeyboard(qwerty){
-    let keyboard = {};
+    const keyboard = {};
     for(let key of qwerty){
         keyboard[key] = 'cell';
     }

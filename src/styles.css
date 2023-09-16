@@ -203,8 +203,20 @@ h1 {
   gap: 16px;
 }
 
+.keyboard-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
 .keyboard-cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
   border-radius: 25%;
+  width: 75px;
   background-color: aliceblue;
 }
 
